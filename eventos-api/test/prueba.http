@@ -3,8 +3,8 @@ POST http://localhost:3000/events
 Content-Type: application/json
 
 {
-  "nombre": "Programacion",
-  "descripcion": "Conferencia tecnología",
+  "nombre": "Programacion basica",
+  "descripcion": " tecnología",
   "ubicacion": "Lima ",
   "fechaEvento": "2026-08-04",
   "capacidad": 200
@@ -14,28 +14,28 @@ Content-Type: application/json
 GET http://localhost:3000/events
 
 ### Obtener evento por ID
-GET http://localhost:3000/events/8
+GET http://localhost:3000/events/10
 
 ### Actualizar evento
 PUT http://localhost:3000/events/8
 Content-Type: application/json
 
 {
-  "nombre": "Progomacion Avanzado",
+  "nombre": "Progamacion Avanzada",
   "descripcion": "Conferencia",
-  "ubicacion": "Lima, Perú",
+  "ubicacion": "Lima",
   "fechaEvento": "2027-07-04",
-  "capacidad": 250
+  "capacidad": 2
 }
 ### Eliminar evento
-DELETE http://localhost:3000/events/7
+DELETE http://localhost:3000/events/10
 
 ### Registrar inscripción
 POST http://localhost:3000/registrations
 Content-Type: application/json
 
 {
-  "participante": "Francis Bazán",
+  "participante": "miguel ",
   "correo": "francisbazan707@mail.com",
   "telefono": "999888777",
   "eventoId": 8
@@ -51,4 +51,4 @@ GET http://localhost:3000/registrations/event/8
 GET http://localhost:3000/registrations/participant/Francis
 
 ### Cancelar inscripción
-DELETE http://localhost:3000/registrations/4
+DELETE http://localhost:3000/registrations/5

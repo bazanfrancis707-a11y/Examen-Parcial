@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateInscripcionDto } from './dto/create-inscripcion.dto';
 
@@ -9,8 +9,14 @@ export class InscripcionesService {
   async create(dto: CreateInscripcionDto) {
     const evento = await this.prisma.evento.findUnique({
       where: { id: dto.eventoId },
+      include: { inscripciones: true },
     });
     if (!evento) throw new NotFoundException(`Evento #${dto.eventoId} no existe`);
+//verfica capacidad
+    if (evento.inscripciones.length >= evento.capacidad) {
+      throw new BadRequestException(`El evento #${dto.eventoId} no tiene capacidad disponible`);
+    }
+
     return this.prisma.inscripcion.create({ data: dto });
   }
 
