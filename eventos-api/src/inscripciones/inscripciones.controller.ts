@@ -18,17 +18,14 @@ export class InscripcionesController {
   async findAll() {
     return await this.inscripcionesService.findAll();
   }
-
   @Get('event/:eventId')
   async findByEvento(@Param('eventId', ParseIntPipe) eventId: number) {
     return await this.inscripcionesService.findByEvento(eventId);
   }
-
   @Get('participant/:name')
   async findByParticipante(@Param('name') name: string) {
     return await this.inscripcionesService.findByParticipante(name);
   }
-
   @Delete(':id')
   async remove(@Param('id', ParseIntPipe) id: number) {
     return await this.inscripcionesService.remove(id);

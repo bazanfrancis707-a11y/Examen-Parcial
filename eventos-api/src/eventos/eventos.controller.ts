@@ -9,7 +9,6 @@ import { UpdateEventoDto } from './dto/update-evento.dto';
 @Controller('events')
 export class EventosController {
   constructor(private readonly eventosService: EventosService) {}
-
   @Post()
   async create(@Body() dto: CreateEventoDto) {
     return await this.eventosService.create(dto);
@@ -29,7 +28,6 @@ export class EventosController {
   async update(@Param('id', ParseIntPipe) id: number, @Body() dto: UpdateEventoDto) {
     return await this.eventosService.update(id, dto);
   }
-
   @Delete(':id')
   async remove(@Param('id', ParseIntPipe) id: number) {
     return await this.eventosService.remove(id);

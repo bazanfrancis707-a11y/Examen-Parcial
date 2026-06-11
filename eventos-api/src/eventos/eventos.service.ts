@@ -25,7 +25,6 @@ export class EventosService {
     if (!evento) throw new NotFoundException(`Evento #${id} no encontrado`);
     return evento;
   }
-
   async update(id: number, dto: UpdateEventoDto) {
     await this.findOne(id);
     return this.prisma.evento.update({
@@ -36,7 +35,6 @@ export class EventosService {
       },
     });
   }
-
   async remove(id: number) {
     await this.findOne(id);
     return this.prisma.evento.delete({ where: { id } });
